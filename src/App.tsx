@@ -9,6 +9,7 @@ import { Layout } from "./components/layout/Layout";
 import { Dashboard } from "./pages/Dashboard";
 import { Assets } from "./pages/Assets";
 import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import "./i18n/config";
 
@@ -28,6 +29,14 @@ const App = () => (
               element={
                 <GuestGuard>
                   <Login />
+                </GuestGuard>
+              } 
+            />
+            <Route 
+              path="/register" 
+              element={
+                <GuestGuard>
+                  <Register />
                 </GuestGuard>
               } 
             />

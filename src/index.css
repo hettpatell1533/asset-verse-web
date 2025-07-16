@@ -5,12 +5,18 @@
 /* Asset Management System Design System */
 
 @layer base {
-  :root {
+:root {
+    /* Auth Colors - Blue Gradient Design */
+    --auth-gradient-start: 212 100% 50%;
+    --auth-gradient-end: 188 100% 50%;
+    --auth-text-secondary: 240 3.8% 60%;
+    --auth-border: 240 5.9% 85%;
+    
     /* Brand Colors */
-    --brand-primary: 220 70% 50%;
-    --brand-primary-dark: 220 70% 40%;
-    --brand-secondary: 260 60% 45%;
-    --brand-accent: 45 95% 55%;
+    --brand-primary: 212 100% 50%;
+    --brand-primary-dark: 212 100% 40%;
+    --brand-secondary: 188 100% 50%;
+    --brand-accent: 188 100% 50%;
     
     /* Neutral Colors */
     --neutral-50: 210 40% 98%;
@@ -74,6 +80,7 @@
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-primary-dark)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--brand-secondary)), hsl(var(--brand-primary)));
+    --gradient-auth: linear-gradient(135deg, hsl(var(--auth-gradient-start)) 0%, hsl(var(--auth-gradient-end)) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(var(--neutral-900) / 0.05);

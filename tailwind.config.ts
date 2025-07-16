@@ -22,6 +22,8 @@ export default {
 				sans: ['IBM Plex Sans', 'sans-serif'],
 			},
 			colors: {
+				// Auth Colors
+				'auth-border': 'hsl(var(--auth-border))',
 				// Brand Colors
 				brand: {
 					primary: 'hsl(var(--brand-primary))',
@@ -95,6 +97,7 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-secondary': 'var(--gradient-secondary)',
+				'gradient-auth': 'var(--gradient-auth)',
 			},
 			boxShadow: {
 				'custom-sm': 'var(--shadow-sm)',

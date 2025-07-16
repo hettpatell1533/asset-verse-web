@@ -80,17 +80,27 @@
     "lost": "Lost"
   },
   "auth": {
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
+    "signIn": "Signin",
+    "signUp": "Signup",
+    "signinTitle": "Signin to your ASM!",
+    "signupTitle": "Signup to your ASM!",
+    "subtitle": "Create an account to run wild through our curated experiences.",
     "email": "Email",
     "password": "Password",
-    "forgotPassword": "Forgot Password?",
-    "rememberMe": "Remember Me",
-    "dontHaveAccount": "Don't have an account?",
-    "alreadyHaveAccount": "Already have an account?",
-    "createAccount": "Create Account",
     "firstName": "First Name",
     "lastName": "Last Name",
-    "confirmPassword": "Confirm Password"
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember me",
+    "dontHaveAccount": "You do not have account yet?",
+    "alreadyHaveAccount": "Already have an account?",
+    "termsText": "By Signing up, you agree to our Terms od Service & Policy",
+    "placeholders": {
+      "email": "Enter your email address",
+      "password": "Enter your password",
+      "firstName": "Enter your first name",
+      "lastName": "Enter your last name"
+    },
+    "heroTitle": "Effortlessly manage your Assets and Operations.",
+    "heroSubtitle": "Log in to access your CRM dashboard and manage your team."
   }
 }

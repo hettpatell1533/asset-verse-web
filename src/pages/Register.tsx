@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, Link } from 'react-router-dom';
-import { Eye, EyeOff, Mail } from 'lucide-react';
+import { Eye, EyeOff, Mail, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
-import { Checkbox } from '../components/ui/checkbox';
 import { useAppContext } from '../contexts/AppContext';
 import { authActions } from '../actions/authActions';
 import { AuthLayout } from '../components/auth/AuthLayout';
 import { AuthLogo } from '../components/auth/AuthLogo';
 
-export const Login: React.FC = () => {
+export const Register: React.FC = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { dispatch } = useAppContext();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
     email: '',
-    password: '',
-    rememberMe: false
+    password: ''
   });
   const isRTL = i18n.language === 'ar';
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: value
     }));
   };
 
@@ -37,22 +37,24 @@ export const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await authActions.login({
+      const response = await authActions.register({
         email: formData.email,
-        password: formData.password
+        password: formData.password,
+        firstName: formData.firstName,
+        lastName: formData.lastName
       });
 
       dispatch({
         type: 'SET_AUTH',
         payload: {
           isAuthenticated: true,
-          user: response.user
+          user: (response as any).user
         }
       });
 
       navigate('/dashboard');
     } catch (error) {
-      console.error('Login failed:', error);
+      console.error('Registration failed:', error);
     } finally {
       setLoading(false);
     }
@@ -66,7 +68,7 @@ export const Login: React.FC = () => {
         {/* Header */}
         <div className={`space-y-2 ${isRTL ? 'text-right' : 'text-left'}`}>
           <h1 className="text-2xl font-bold text-foreground">
-            {t('auth.signinTitle')}
+            {t('auth.signupTitle')}
           </h1>
           <p className="text-muted-foreground">
             {t('auth.subtitle')}
@@ -75,6 +77,50 @@ export const Login: React.FC = () => {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
+          {/* First Name Field */}
+          <div className="space-y-2">
+            <Label htmlFor="firstName" className="text-sm font-medium text-foreground">
+              {t('auth.firstName')}
+            </Label>
+            <div className="relative">
+              <Input
+                id="firstName"
+                name="firstName"
+                type="text"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                placeholder={t('auth.placeholders.firstName')}
+                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pl-10 pr-3'} border-auth-border`}
+                required
+              />
+              <User className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground ${
+                isRTL ? 'right-3' : 'left-3'
+              }`} />
+            </div>
+          </div>
+
+          {/* Last Name Field */}
+          <div className="space-y-2">
+            <Label htmlFor="lastName" className="text-sm font-medium text-foreground">
+              {t('auth.lastName')}
+            </Label>
+            <div className="relative">
+              <Input
+                id="lastName"
+                name="lastName"
+                type="text"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                placeholder={t('auth.placeholders.lastName')}
+                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pl-10 pr-3'} border-auth-border`}
+                required
+              />
+              <User className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground ${
+                isRTL ? 'right-3' : 'left-3'
+              }`} />
+            </div>
+          </div>
+
           {/* Email Field */}
           <div className="space-y-2">
             <Label htmlFor="email" className="text-sm font-medium text-foreground">
@@ -131,50 +177,30 @@ export const Login: React.FC = () => {
             </div>
           </div>
 
-          {/* Forgot Password */}
-          <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-            <Link
-              to="/forgot-password"
-              className="text-sm text-foreground hover:underline"
-            >
-              {t('auth.forgotPassword')}
-            </Link>
-          </div>
-
           {/* Submit Button */}
           <Button
             type="submit"
             className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
             disabled={loading}
           >
-            {loading ? t('common.loading') : t('auth.signIn')}
+            {loading ? t('common.loading') : t('auth.signUp')}
           </Button>
 
-          {/* Remember Me */}
-          <div className={`flex items-center ${isRTL ? 'justify-end space-x-reverse space-x-2' : 'justify-start space-x-2'}`}>
-            <Checkbox
-              id="rememberMe"
-              name="rememberMe"
-              checked={formData.rememberMe}
-              onCheckedChange={(checked) => 
-                setFormData(prev => ({ ...prev, rememberMe: checked as boolean }))
-              }
-            />
-            <Label htmlFor="rememberMe" className="text-sm text-foreground">
-              {t('auth.rememberMe')}
-            </Label>
+          {/* Terms Text */}
+          <div className={`text-xs text-muted-foreground ${isRTL ? 'text-right' : 'text-left'}`}>
+            {t('auth.termsText')}
           </div>
 
-          {/* Sign Up Link */}
+          {/* Sign In Link */}
           <div className={`text-center text-sm ${isRTL ? 'space-x-reverse space-x-1' : 'space-x-1'}`}>
             <span className="text-foreground">
-              {t('auth.dontHaveAccount')}{' '}
+              {t('auth.alreadyHaveAccount')}{' '}
             </span>
             <Link
-              to="/register"
+              to="/login"
               className="text-foreground hover:underline font-medium"
             >
-              {t('auth.signUp')}
+              {t('auth.signIn')}
             </Link>
           </div>
         </form>
