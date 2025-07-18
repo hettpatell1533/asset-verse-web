@@ -3,6 +3,7 @@ import { useAppContext } from '../../contexts/AppContext';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { cn } from '../../lib/utils';
+import Footer from '../ui/footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,7 +26,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       "min-h-screen bg-background",
       state.language === 'ar' ? 'rtl' : 'ltr'
     )}>
-      <div className="flex h-screen">
+      <div className="flex h-[93.4vh]">
         <Sidebar isOpen={sidebarOpen} onClose={handleSidebarClose} />
         
         <div className="flex-1 flex flex-col overflow-hidden lg:ml-0">
@@ -36,6 +37,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           </main>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

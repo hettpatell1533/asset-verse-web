@@ -1,7 +1,7 @@
 {
   "common": {
     "dashboard": "لوحة التحكم",
-    "assets": "الأصول",
+    "sites": "المواقع",
     "reports": "التقارير",
     "settings": "الإعدادات",
     "profile": "الملف الشخصي",
@@ -29,7 +29,14 @@
     "maintenance": "الصيانة",
     "users": "المستخدمون",
     "categories": "الفئات",
-    "locations": "المواقع"
+    "locations": "المواقع",
+    "department":"قسم",
+    "employee":"موظف",
+    "positions":"موضع",
+    "rolesandrights":"الأدوار والحقوق",
+    "category":"فئة",
+    "subcategory":"الفئة الفرعية",
+    "assets":"أصول"
   },
   "dashboard": {
     "title": "لوحة تحكم إدارة الأصول",

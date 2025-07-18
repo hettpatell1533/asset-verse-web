@@ -7,11 +7,19 @@ import { AppProvider } from "./contexts/AppContext";
 import { AuthGuard, GuestGuard } from "./middleware/authMiddleware";
 import { Layout } from "./components/layout/Layout";
 import { Dashboard } from "./pages/Dashboard";
-import { Assets } from "./pages/Assets";
+import { Sites } from "./pages/Sites";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import "./i18n/config";
+import { Category } from "./pages/Category";
+import { Location } from "./pages/Location";
+import { RolesAndRights } from "./pages/RolesAndRights";
+import { SubCategory } from "./pages/Subcategory";
+import  Department  from "./pages/Department";
+import { Position } from "./pages/Position";
+import { Assets } from "./pages/Assets";
+import { Employee } from "./pages/Employee";
 
 const queryClient = new QueryClient();
 
@@ -45,114 +53,104 @@ const App = () => (
             <Route 
               path="/dashboard" 
               element={
-                <AuthGuard>
+                // <AuthGuard>
                   <Layout>
                     <Dashboard />
                   </Layout>
-                </AuthGuard>
+                // </AuthGuard>
               } 
             />
             <Route 
-              path="/assets" 
+              path="/sites" 
               element={
-                <AuthGuard>
+                // <AuthGuard>
                   <Layout>
-                    <Assets />
+                    <Sites />
                   </Layout>
-                </AuthGuard>
+                // </AuthGuard>
               } 
             />
             <Route 
-              path="/inventory" 
+              path="/employee" 
               element={
-                <AuthGuard>
+                // <AuthGuard>
                   <Layout>
-                    <div className="text-center py-20">
-                      <h1 className="text-2xl font-bold">Inventory Page</h1>
-                      <p className="text-muted-foreground">Coming soon...</p>
-                    </div>
+                    <Employee/>
                   </Layout>
-                </AuthGuard>
+                // </AuthGuard>
               } 
             />
             <Route 
-              path="/maintenance" 
+              path="/category" 
               element={
-                <AuthGuard>
+                // <AuthGuard>
                   <Layout>
-                    <div className="text-center py-20">
-                      <h1 className="text-2xl font-bold">Maintenance Page</h1>
-                      <p className="text-muted-foreground">Coming soon...</p>
-                    </div>
+                    <Category/>
                   </Layout>
-                </AuthGuard>
-              } 
-            />
-            <Route 
-              path="/categories" 
-              element={
-                <AuthGuard>
-                  <Layout>
-                    <div className="text-center py-20">
-                      <h1 className="text-2xl font-bold">Categories Page</h1>
-                      <p className="text-muted-foreground">Coming soon...</p>
-                    </div>
-                  </Layout>
-                </AuthGuard>
+                // </AuthGuard>
               } 
             />
             <Route 
               path="/locations" 
               element={
-                <AuthGuard>
+                // <AuthGuard>
                   <Layout>
-                    <div className="text-center py-20">
-                      <h1 className="text-2xl font-bold">Locations Page</h1>
-                      <p className="text-muted-foreground">Coming soon...</p>
-                    </div>
+                   <Location/>
                   </Layout>
-                </AuthGuard>
+                // </AuthGuard>
+              } 
+            />
+                <Route 
+              path="/department" 
+              element={
+                // <AuthGuard>
+                  <Layout>
+                   <Department/>
+                  </Layout>
+                // </AuthGuard>
               } 
             />
             <Route 
-              path="/users" 
+              path="/position" 
               element={
-                <AuthGuard>
+                // <AuthGuard>
                   <Layout>
-                    <div className="text-center py-20">
-                      <h1 className="text-2xl font-bold">Users Page</h1>
-                      <p className="text-muted-foreground">Coming soon...</p>
-                    </div>
+                    <Position/>
                   </Layout>
-                </AuthGuard>
+                // </AuthGuard>
+              } 
+            />
+               <Route 
+              path="/rolesandrights" 
+              element={
+                // <AuthGuard>
+                  <Layout>
+                    <RolesAndRights/>
+                  </Layout>
+                // </AuthGuard>
+              } 
+            />
+               <Route 
+              path="/subcategory" 
+              element={
+                // <AuthGuard>
+                  <Layout>
+                    <SubCategory/>
+                  </Layout>
+                // </AuthGuard>
               } 
             />
             <Route 
-              path="/reports" 
+              path="/assets" 
               element={
-                <AuthGuard>
+                // <AuthGuard>
                   <Layout>
-                    <div className="text-center py-20">
-                      <h1 className="text-2xl font-bold">Reports Page</h1>
-                      <p className="text-muted-foreground">Coming soon...</p>
-                    </div>
+                    <Assets/>
                   </Layout>
-                </AuthGuard>
+                // </AuthGuard>
               } 
             />
-            <Route 
-              path="/settings" 
-              element={
-                <AuthGuard>
-                  <Layout>
-                    <div className="text-center py-20">
-                      <h1 className="text-2xl font-bold">Settings Page</h1>
-                      <p className="text-muted-foreground">Coming soon...</p>
-                    </div>
-                  </Layout>
-                </AuthGuard>
-              } 
-            />
+          
             
             {/* Redirects */}
             <Route path="/" element={<Navigate to="/dashboard" replace />} />

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-export const Assets: React.FC = () => {
+export const RolesAndRights: React.FC = () => {
   
 
   return (
     <div className="space-y-6">
       {/* Page Header */}
-        <h1>Assets...</h1>
+        <h1>RolesAndRights...</h1>
     </div>
   );
 };

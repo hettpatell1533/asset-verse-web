@@ -143,6 +143,10 @@ class ApiService {
       body: JSON.stringify(profileData),
     });
   }
+
+  async getEmployee(pageNumber:number, pageSize:number){
+    return this.request(`/Employee/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+  }
 }
 
 export const apiService = new ApiService();

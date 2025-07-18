@@ -15,6 +15,7 @@ interface AppState {
   theme: 'light' | 'dark';
   sidebarCollapsed: boolean;
   loading: boolean;
+  pageTitle: string;
 }
 
 type AppAction =
@@ -22,7 +23,8 @@ type AppAction =
   | { type: 'SET_LANGUAGE'; payload: string }
   | { type: 'SET_THEME'; payload: 'light' | 'dark' }
   | { type: 'TOGGLE_SIDEBAR' }
-  | { type: 'SET_LOADING'; payload: boolean };
+  | { type: 'SET_LOADING'; payload: boolean }
+  | { type: 'SET_PAGE_TITLE'; payload: string };
 
 const initialState: AppState = {
   isAuthenticated: false,
@@ -31,6 +33,7 @@ const initialState: AppState = {
   theme: 'light',
   sidebarCollapsed: false,
   loading: false,
+  pageTitle:"Dashboard"
 };
 
 const AppContext = createContext<{
@@ -69,6 +72,8 @@ const appReducer = (state: AppState, action: AppAction): AppState => {
         ...state,
         loading: action.payload,
       };
+    case 'SET_PAGE_TITLE':
+      return { ...state, pageTitle: action.payload };
     default:
       return state;
   }

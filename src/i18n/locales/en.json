@@ -1,7 +1,7 @@
 {
   "common": {
     "dashboard": "Dashboard",
-    "assets": "Assets",
+    "sites": "Sites",
     "reports": "Reports",
     "settings": "Settings",
     "profile": "Profile",
@@ -29,7 +29,14 @@
     "maintenance": "Maintenance",
     "users": "Users",
     "categories": "Categories",
-    "locations": "Locations"
+    "locations": "Locations",
+    "department":"Department",
+    "employee":"Employee",
+    "positions":"Position",
+    "rolesandrights":"Roles & Rights",
+    "category":"Category",
+    "subcategory":"Sub Category",
+    "assets":"Assets"
   },
   "dashboard": {
     "title": "Asset Management Dashboard",
