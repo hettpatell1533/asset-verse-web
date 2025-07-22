@@ -16,10 +16,11 @@ import { Category } from "./pages/Category";
 import { Location } from "./pages/Location";
 import { RolesAndRights } from "./pages/RolesAndRights";
 import { SubCategory } from "./pages/Subcategory";
-import  Department  from "./pages/Department";
+import Department from "./pages/Department";
 import { Position } from "./pages/Position";
 import { Assets } from "./pages/Assets";
 import { Employee } from "./pages/Employee";
+import CompanySetup from "./pages/CompanySetup";
 
 const queryClient = new QueryClient();
 
@@ -32,129 +33,128 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             {/* Public Routes */}
-            <Route 
-              path="/login" 
+            <Route
+              path="/login"
               element={
                 <GuestGuard>
                   <Login />
                 </GuestGuard>
-              } 
+              }
             />
-            <Route 
-              path="/register" 
+            <Route
+              path="/register"
               element={
                 <GuestGuard>
                   <Register />
                 </GuestGuard>
-              } 
+              }
             />
-            
+
             {/* Protected Routes */}
-            <Route 
-              path="/dashboard" 
+            <Route
+              path="/company-setup"
               element={
                 // <AuthGuard>
-                  <Layout>
-                    <Dashboard />
-                  </Layout>
+                // <Layout>
+                <CompanySetup />
+                // </Layout>
                 // </AuthGuard>
-              } 
+              }
             />
-            <Route 
-              path="/sites" 
+            <Route
+              path="/dashboard"
               element={
                 // <AuthGuard>
-                  <Layout>
-                    <Sites />
-                  </Layout>
+                <Layout>
+                  <Dashboard />
+                </Layout>
                 // </AuthGuard>
-              } 
+              }
             />
-            <Route 
-              path="/employee" 
+            <Route
+              path="/assets"
               element={
                 // <AuthGuard>
-                  <Layout>
-                    <Employee/>
-                  </Layout>
+                <Layout>
+                  <Assets />
+                </Layout>
                 // </AuthGuard>
-              } 
+              }
             />
-            <Route 
-              path="/category" 
+            <Route
+              path="/inventory"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                   <Layout>
-                    <Category/>
+                    <Employee />
                   </Layout>
-                // </AuthGuard>
-              } 
+                </AuthGuard>
+              }
             />
-            <Route 
-              path="/locations" 
+            <Route
+              path="/maintenance"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                   <Layout>
-                   <Location/>
+                    <Category />
                   </Layout>
-                // </AuthGuard>
-              } 
+                </AuthGuard>
+              }
             />
-                <Route 
-              path="/department" 
+            <Route
+              path="/categories"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                   <Layout>
-                   <Department/>
+                    <Location />
                   </Layout>
-                // </AuthGuard>
-              } 
+                </AuthGuard>
+              }
             />
-            <Route 
-              path="/position" 
+            <Route
+              path="/locations"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                   <Layout>
-                    <Position/>
+                    <Department />
                   </Layout>
-                // </AuthGuard>
-              } 
+                </AuthGuard>
+              }
             />
-               <Route 
-              path="/rolesandrights" 
+            <Route
+              path="/users"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                   <Layout>
-                    <RolesAndRights/>
+                    <Position />
                   </Layout>
-                // </AuthGuard>
-              } 
+                </AuthGuard>
+              }
             />
-               <Route 
-              path="/subcategory" 
+            <Route
+              path="/reports"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                   <Layout>
-                    <SubCategory/>
+                    <RolesAndRights />
                   </Layout>
-                // </AuthGuard>
-              } 
+                </AuthGuard>
+              }
             />
-            <Route 
-              path="/assets" 
+            <Route
+              path="/settings"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                   <Layout>
-                    <Assets/>
+                    <Assets />
                   </Layout>
-                // </AuthGuard>
-              } 
+                </AuthGuard>
+              }
             />
-          
-            
+
             {/* Redirects */}
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            
+
             {/* 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>

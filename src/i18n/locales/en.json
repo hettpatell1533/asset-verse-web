@@ -108,6 +108,8 @@
       "lastName": "Enter your last name"
     },
     "heroTitle": "Effortlessly manage your Assets and Operations.",
-    "heroSubtitle": "Log in to access your CRM dashboard and manage your team."
+    "heroSubtitle": "Log in to access your CRM dashboard and manage your team.",
+    "loginSubHeading": "Create an account to run wild through our curated experiences.",
+    "signupSubHeading": "Create an account to run wild through our curated experiences."
   }
 }

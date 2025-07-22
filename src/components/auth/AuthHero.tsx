@@ -45,7 +45,7 @@ export const AuthHero: React.FC = () => {
   return (
     <div className="hidden lg:flex lg:w-1/2 bg-gradient-auth relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-auth" />
-      
+
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center px-16 text-white">
         <h1 className="text-4xl font-bold mb-6 leading-tight">
@@ -58,11 +58,6 @@ export const AuthHero: React.FC = () => {
         {/* Image Slider Container */}
         <div className="relative">
           <div className="relative w-full max-w-md mx-auto bg-black/20 rounded-2xl backdrop-blur-sm overflow-hidden">
-            {/* Logo overlay */}
-            <div className="absolute top-4 left-4 z-20 bg-black/50 rounded-lg px-3 py-2">
-              <div className="text-white text-sm font-bold">MAHER</div>
-              <div className="text-white/80 text-xs">Asset Management System</div>
-            </div>
 
             {/* Image */}
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -91,9 +86,8 @@ export const AuthHero: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                    index === currentSlide ? 'bg-white' : 'bg-white/40'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${index === currentSlide ? 'bg-white' : 'bg-white/40'
+                    }`}
                 />
               ))}
             </div>

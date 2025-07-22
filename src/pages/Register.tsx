@@ -62,16 +62,17 @@ export const Register: React.FC = () => {
 
   return (
     <AuthLayout>
-      <AuthLogo />
-      
+      <div className='w-fit mx-auto'>
+        <AuthLogo />
+      </div>
       <div className="space-y-6">
         {/* Header */}
-        <div className={`space-y-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+        <div className={`space-y-2 text-center`}>
           <h1 className="text-2xl font-bold text-foreground">
             {t('auth.signupTitle')}
           </h1>
           <p className="text-muted-foreground">
-            {t('auth.subtitle')}
+            {t('auth.signupSubHeading')}
           </p>
         </div>
 
@@ -90,12 +91,10 @@ export const Register: React.FC = () => {
                 value={formData.firstName}
                 onChange={handleInputChange}
                 placeholder={t('auth.placeholders.firstName')}
-                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pl-10 pr-3'} border-auth-border`}
+                className={`h-12 ${isRTL ? 'pl-3' : 'pr-3'} border-auth-border`}
                 required
               />
-              <User className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground ${
-                isRTL ? 'right-3' : 'left-3'
-              }`} />
+              <User className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground right-3`} />
             </div>
           </div>
 
@@ -112,12 +111,10 @@ export const Register: React.FC = () => {
                 value={formData.lastName}
                 onChange={handleInputChange}
                 placeholder={t('auth.placeholders.lastName')}
-                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pl-10 pr-3'} border-auth-border`}
+                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pr-3'} border-auth-border`}
                 required
               />
-              <User className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground ${
-                isRTL ? 'right-3' : 'left-3'
-              }`} />
+              <User className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground right-3`} />
             </div>
           </div>
 
@@ -134,12 +131,10 @@ export const Register: React.FC = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder={t('auth.placeholders.email')}
-                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pl-10 pr-3'} border-auth-border`}
+                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pr-3'} border-auth-border`}
                 required
               />
-              <Mail className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground ${
-                isRTL ? 'right-3' : 'left-3'
-              }`} />
+              <Mail className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground right-3`} />
             </div>
           </div>
 
@@ -163,9 +158,8 @@ export const Register: React.FC = () => {
                 type="button"
                 variant="ghost"
                 size="icon"
-                className={`absolute top-1/2 transform -translate-y-1/2 h-auto p-1 hover:bg-transparent ${
-                  isRTL ? 'left-2' : 'right-2'
-                }`}
+                className={`absolute top-1/2 transform -translate-y-1/2 h-auto p-1 hover:bg-transparent ${isRTL ? 'left-2' : 'right-2'
+                  }`}
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -187,7 +181,7 @@ export const Register: React.FC = () => {
           </Button>
 
           {/* Terms Text */}
-          <div className={`text-xs text-muted-foreground ${isRTL ? 'text-right' : 'text-left'}`}>
+          <div className={`text-xs text-muted-foreground text-center`}>
             {t('auth.termsText')}
           </div>
 

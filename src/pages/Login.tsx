@@ -60,16 +60,17 @@ export const Login: React.FC = () => {
 
   return (
     <AuthLayout>
-      <AuthLogo />
-      
+      <div className='w-fit mx-auto'>
+        <AuthLogo />
+      </div>
       <div className="space-y-6">
         {/* Header */}
-        <div className={`space-y-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+        <div className={`space-y-2 mt-4 text-center ${isRTL ? 'text-right' : 'text-left'}`}>
           <h1 className="text-2xl font-bold text-foreground">
             {t('auth.signinTitle')}
           </h1>
           <p className="text-muted-foreground">
-            {t('auth.subtitle')}
+            {t('auth.loginSubHeading')}
           </p>
         </div>
 
@@ -88,12 +89,10 @@ export const Login: React.FC = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder={t('auth.placeholders.email')}
-                className={`h-12 ${isRTL ? 'pr-10 pl-3' : 'pl-10 pr-3'} border-auth-border`}
+                className={`h-12 pr-10 pl-3 border-auth-border`}
                 required
               />
-              <Mail className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground ${
-                isRTL ? 'right-3' : 'left-3'
-              }`} />
+              <Mail className={`absolute top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground right-3`} />
             </div>
           </div>
 
@@ -110,16 +109,14 @@ export const Login: React.FC = () => {
                 value={formData.password}
                 onChange={handleInputChange}
                 placeholder={t('auth.placeholders.password')}
-                className={`h-12 ${isRTL ? 'pl-10 pr-3' : 'pr-10 pl-3'} border-auth-border`}
+                className={`h-12 pr-10 pl-3 border-auth-border`}
                 required
               />
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
-                className={`absolute top-1/2 transform -translate-y-1/2 h-auto p-1 hover:bg-transparent ${
-                  isRTL ? 'left-2' : 'right-2'
-                }`}
+                className={`absolute top-1/2 transform -translate-y-1/2 h-auto p-1 hover:bg-transparent right-3`}
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -132,7 +129,7 @@ export const Login: React.FC = () => {
           </div>
 
           {/* Forgot Password */}
-          <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
+          <div className="text-right">
             <Link
               to="/forgot-password"
               className="text-sm text-foreground hover:underline"
@@ -156,7 +153,7 @@ export const Login: React.FC = () => {
               id="rememberMe"
               name="rememberMe"
               checked={formData.rememberMe}
-              onCheckedChange={(checked) => 
+              onCheckedChange={(checked) =>
                 setFormData(prev => ({ ...prev, rememberMe: checked as boolean }))
               }
             />

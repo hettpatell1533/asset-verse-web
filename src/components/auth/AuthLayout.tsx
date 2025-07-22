@@ -11,7 +11,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   const isRTL = i18n.language === 'ar';
 
   return (
-    <div 
+    <div
       className={`min-h-screen flex ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
