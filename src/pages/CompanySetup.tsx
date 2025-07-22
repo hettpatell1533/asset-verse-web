@@ -8,6 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
+import { useAppContext } from "@/contexts/AppContext";
+import { authActions } from "@/actions/authActions";
+import { useNavigate } from "react-router-dom";
 
 const steps = [
     {
@@ -80,6 +83,8 @@ export default function CompanySetup() {
     const [location, setLocation] = useState("");
     const [marker, setMarker] = useState(defaultCenter);
     const [map, setMap] = useState(null);
+    const { dispatch } = useAppContext();
+    const navigate=useNavigate()
 
     const currentStep = step as Step;
     const schema = schemaMap[currentStep];
@@ -103,6 +108,10 @@ export default function CompanySetup() {
             console.log("Final submit", data);
         }
     };
+    const handleLogout=async()=>{
+        await authActions.logout()
+        navigate('/login')
+    }
 
     // useEffect(() => {
     //     const loader = new window.google.maps.plugins.loader.Loader({
@@ -158,7 +167,7 @@ export default function CompanySetup() {
                 <div className="flex items-center gap-4 text-sm">
                     <span>+966-515-555-788</span>
                     <span>CONTACT@ASSETMANAGEMENT.COM</span>
-                    <button className="text-red-500">Logout</button>
+                    <button className="text-red-500" onClick={handleLogout}>Logout</button>
                 </div>
             </header>
 

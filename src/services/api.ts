@@ -32,7 +32,7 @@ class ApiService {
 
   // Auth endpoints
   async login(credentials: { email: string; password: string }) {
-    return this.request('/auth/login', {
+    return this.request('/Login/Login', {
       method: 'POST',
       body: JSON.stringify(credentials),
     });
@@ -43,8 +43,9 @@ class ApiService {
     password: string;
     firstName: string;
     lastName: string;
+    createdBy
   }) {
-    return this.request('/auth/register', {
+    return this.request('/AdminRegistration/CreateRegistration', {
       method: 'POST',
       body: JSON.stringify(userData),
     });
@@ -146,6 +147,9 @@ class ApiService {
 
   async getEmployee(pageNumber:number, pageSize:number){
     return this.request(`/Employee/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+  }
+  async getPositions(pageNumber:number,pageSize:number){
+    return this.request(`/Position/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`)
   }
 }
 

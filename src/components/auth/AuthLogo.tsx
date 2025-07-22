@@ -6,8 +6,13 @@ export const AuthLogo: React.FC = () => {
   const isRTL = i18n.language === 'ar';
 
   return (
-    <div>
-      <img src='../../../public/assets/asm-logo.png' className='w-48' width={464} height={238} alt="ASM" />
+    <div className="mb-8 flex justify-center">
+      <img
+        src="/images/ASMLogo.png"
+        alt="Logo"
+        className="max-w-[52%]"
+        style={{ direction: isRTL ? 'rtl' : 'ltr' }}
+      />
     </div>
   );
 };

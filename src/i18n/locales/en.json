@@ -110,6 +110,29 @@
     "heroTitle": "Effortlessly manage your Assets and Operations.",
     "heroSubtitle": "Log in to access your CRM dashboard and manage your team.",
     "loginSubHeading": "Create an account to run wild through our curated experiences.",
-    "signupSubHeading": "Create an account to run wild through our curated experiences."
-  }
+    "signupSubHeading": "Create an account to run wild through our curated experiences.",
+    "errors": {
+      "firstNameRequired": "First name is required.",
+      "lastNameRequired": "Last name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email.",
+      "passwordRequired": "Password is required.",
+      "passwordShort": "Password must be at least 6 characters."
+    }
+  },
+  "employee": {
+  "title": "Employee List"
+  },
+"table": {
+  "name": "Name",
+  "email": "Email",
+  "position": "Position",
+  "id":"Sr. No."
+},
+"position":{
+  "title":"Add Position",
+  "name":"Position Name",
+  "edit":"Edit Position",
+  "placeholders":"Enter position name"
+}
 }

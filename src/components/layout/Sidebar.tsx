@@ -258,7 +258,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       icon: Network,
     },
     {
-      title: t('navigation.employee'),
+      title: t('employee.title'),
       href: '/employee',
       icon: IdCard,
       children: [

@@ -35,6 +35,7 @@ export const authActions = {
     password: string;
     firstName: string;
     lastName: string;
+    createdBy:string
   }) {
     try {
       const response = await apiService.register(userData);
@@ -57,7 +58,7 @@ export const authActions = {
 
   async logout() {
     try {
-      await apiService.logout();
+      // await apiService.logout();
       localStorage.removeItem('token');
       localStorage.removeItem('auth');
       
