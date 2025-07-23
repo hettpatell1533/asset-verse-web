@@ -1,52 +1,45 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { DataTable } from "@/components/ui/datatable";
 import { Loader } from "@/components/ui/loader";
 import { SearchAddHeader } from "@/components/ui/searchHeader";
 import { apiService } from "@/services/api";
-import { useNavigate } from "react-router-dom";
 
-type PositionType = {
+type CategoryType = {
   id: number;
-  name: string;
+  categoryName: string;
 };
 
-type PositionResponse = {
-  success: boolean;
-  message: string;
-  data: PositionType[];
-};
-
-export const PositionList: React.FC = () => {
+export const CategoryList: React.FC = () => {
   const { t } = useTranslation();
-  const [positions, setPositions] = useState<PositionType[]>([]);
+  const [categories, setCategories] = useState<CategoryType[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [search, setSearch] = useState("");
-  const [openModal, setOpenModal] = useState(false);
-  const [editData, setEditData] = useState<PositionType | null>(null);
+  const navigate = useNavigate();
   const pageSize = 10;
-  const navigate=useNavigate();
 
-  const fetchPositions = async (page: number) => {
+  const fetchCategories = async (page: number) => {
     setLoading(true);
     try {
-      const res: any = await apiService.getPositions(page, pageSize);
-      const positionList = res?.data.data || [];
-      const totalRecords = res?.data.totalRecords || 0;
-      setPositions(positionList);
+      const res: any = await apiService.getCategories(page, pageSize);
+      const categoryList: CategoryType[] = res?.data?.data || [];
+      const totalRecords: number = res?.data?.totalRecords || 0;
+
+      setCategories(categoryList);
       setTotalPages(Math.ceil(totalRecords / pageSize));
     } catch (err) {
-      console.error("Failed to fetch positions", err);
+      console.error("Failed to fetch categories", err);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchPositions(currentPage);
-  }, [currentPage, search, openModal]); // Refresh after modal close
+    fetchCategories(currentPage);
+  }, [currentPage]);
 
   const handleSearchChange = (value: string) => {
     setSearch(value);
@@ -54,25 +47,32 @@ export const PositionList: React.FC = () => {
   };
 
   const handleAddClick = () => {
-    navigate('/position/add')
+    navigate("/category/add");
   };
 
-  const handleEdit = (row: PositionType) => {
-    navigate(`/position/edit/${row.id}`);
+  const handleEdit = (row: CategoryType) => {
+    navigate(`/category/edit/${row.id}`);
   };
 
-  const handleDelete = async(row: PositionType) => {
-      await apiService.deletePositon(row.id)
+  const handleDelete = async (row: CategoryType) => {
+    try {
+      await apiService.deleteCategory(row.id);
+      fetchCategories(currentPage);
+    } catch (err) {
+      console.error("Failed to delete category", err);
+    }
   };
+
+  const filteredCategories = categories.filter((c) => c.categoryName.toLowerCase().includes(search.toLowerCase()));
 
   const columns = [
     {
       header: t("table.id"),
-      accessor: "id" as const, // `name` from API
+      accessor: "id" as const,
     },
     {
-      header: t("table.position"),
-      accessor: "name" as const, // `name` from API
+      header: t("table.category"),
+      accessor: "categoryName" as const,
     },
   ];
 
@@ -90,7 +90,7 @@ export const PositionList: React.FC = () => {
       ) : (
         <DataTable
           columns={columns}
-          data={positions}
+          data={filteredCategories}
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={setCurrentPage}

@@ -105,17 +105,7 @@ class ApiService {
     return this.request('/dashboard/activities');
   }
 
-  // Categories endpoints
-  async getCategories() {
-    return this.request('/categories');
-  }
-
-  async createCategory(categoryData: { name: string; description?: string }) {
-    return this.request('/categories', {
-      method: 'POST',
-      body: JSON.stringify(categoryData),
-    });
-  }
+ 
 
   // Locations endpoints
   async getLocations() {
@@ -148,9 +138,82 @@ class ApiService {
   async getEmployee(pageNumber:number, pageSize:number){
     return this.request(`/Employee/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`)
   }
+
+  //Position endpoints
   async getPositions(pageNumber:number,pageSize:number){
     return this.request(`/Position/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`)
   }
+  async getPositionById(id:number){
+    return this.request(`/Position/GetById/${id}`)
+  }
+  async updatePosition(id:number, data: Record<string, any>){
+    return this.request(`/Position/UpdatePosition?id=${id}`,{
+      method:"PUT",
+      body:JSON.stringify(data)
+    })
+  }
+  async createPosition(data:Record<string, any>){
+    return this.request("/Position/CreatePosition",{
+      method:"POST",
+      body:JSON.stringify(data)
+    })
+  }
+  async deletePositon(id:number){
+    return this.request(`/Position/DeletePosition/${id}`,{
+      method:"DELETE"
+    })
+  }
+
+  // Categories endpoints
+  async getCategories(pageNumber:number,pageSize:number){
+    return this.request(`/Category/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+  }
+  async getCategoryById(id:number){
+    return this.request(`/Category/GetById/${id}`)
+  }
+   async createCategory(data:Record<string, any>) {
+    return this.request('/Category/CreateCategory', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+  async updateCategory(id:number, data: Record<string, any>){
+    return this.request(`/Category/UpdateCategory?id=${id}`,{
+      method:"PUT",
+      body:JSON.stringify(data)
+    })
+  }
+  async deleteCategory(id:number){
+    return this.request(`/Category/DeleteCategory/${id}`,{
+      method:"DELETE"
+    })
+  }
+
+  // SubCategory endpoints
+  async getSubCategories(pageNumber:number,pageSize:number){
+    return this.request(`/SubCategory/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+  }
+  async getSubCategoryById(id:number){
+    return this.request(`/SubCategory/GetById/${id}`)
+  }
+  async createSubCategory(data:Record<string, any>) {
+    return this.request('/SubCategory/CreateSubCategory', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+  async updateSubCategory(id:number, data: Record<string, any>){
+    return this.request(`/SubCategory/UpdateSubCategory?id=${id}`,{
+      method:"PUT",
+      body:JSON.stringify(data)
+    })
+  }
+  async deleteSubCategory(id:number){
+    return this.request(`/SubCategory/DeleteSubCategory/${id}`,{
+      method:"DELETE"
+    })
+  }
+
 }
 
 export const apiService = new ApiService();

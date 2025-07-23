@@ -127,12 +127,31 @@
   "name": "Name",
   "email": "Email",
   "position": "Position",
-  "id":"Sr. No."
+  "id":"Sr. No.",
+  "category":"Category"
 },
 "position":{
   "title":"Add Position",
   "name":"Position Name",
   "edit":"Edit Position",
-  "placeholders":"Enter position name"
+  "placeholders":"Enter position name",
+  "required":"Position name is required"
+},
+"category": {
+  "title": "Add Category",
+  "edit": "Edit Category",
+  "name": "Category Name",
+  "placeholders": "Enter category name",
+  "required": "Category name is required"
+},
+"subcategory":{
+  "title":"Add Sub Category",
+  "edit": "Edit Sub Category",
+  "name": "Sub Category Name",
+  "placeholder": "Enter sub category name",
+  "required": "Sub category name is required",
+  "selectCategory":"Category",
+  "selectPlaceholder":"Select Category",
+  "selectCategoryRequired":"Please select a category"
 }
 }

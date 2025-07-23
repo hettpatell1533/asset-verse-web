@@ -5,39 +5,39 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiService } from '@/services/api';
 
-const PositionForm: React.FC = () => {
+const CategoryForm: React.FC = () => {
   const { t } = useTranslation();
-  const {id} = useParams();
-
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [positionName, setPositionName] = useState('');
+  const [categoryName, setCategoryName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   // Fetch for edit
   useEffect(() => {
-    if(id){
-        const fetchPosition = async () => {
-          try {
-            setLoading(true);
-            const res = await apiService.getPositionById(id as any);
-            setPositionName(res.data.name || '');
-          } catch (err) {
-            console.error('Failed to load position', err);
-          } finally {
-            setLoading(false);
-          }
+    if (id) {
+      const fetchCategory = async () => {
+        try {
+          setLoading(true);
+          const res = await apiService.getCategoryById(Number(id));
+          setCategoryName(res.data?.categoryName || '');
+        } catch (err) {
+          console.error('Failed to load category', err);
+        } finally {
+          setLoading(false);
         }
-        
-          fetchPosition();
-    }   
+      };
+
+      fetchCategory();
+    }
   }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!positionName.trim()) {
-      setError(t('position.required') || 'Position name is required');
+
+    if (!categoryName.trim()) {
+      setError(t('category.required') || 'Category name is required');
       return;
     }
 
@@ -46,14 +46,18 @@ const PositionForm: React.FC = () => {
       setLoading(true);
 
       if (id) {
-        await apiService.updatePosition(Number(id), { 
-          positionId:id,
-          positionName: positionName.trim() });
+        await apiService.updateCategory(Number(id), {
+            categoryId:id,
+          categoryName: categoryName.trim(),
+        });
       } else {
-        await apiService.createPosition( { name: positionName.trim(),createdBy:"" });
+        await apiService.createCategory({
+          categoryName: categoryName.trim(),
+          createdBy: '', // you can update this with actual user ID
+        });
       }
 
-      navigate('/position');
+      navigate('/category');
     } catch (err: any) {
       console.error(err);
       setError(err?.response?.data?.message || 'Something went wrong');
@@ -65,18 +69,18 @@ const PositionForm: React.FC = () => {
   return (
     <div className="p-6 space-y-6">
       <h2 className="text-xl font-semibold">
-        {id ? t('position.edit') : t('position.title')}
+        {id ? t('category.edit') : t('category.title')}
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="positionName">{t('position.name')}</Label>
+          <Label htmlFor="categoryName">{t('category.name')}</Label>
           <Input
-            id="positionName"
+            id="categoryName"
             type="text"
-            value={positionName}
-            onChange={(e) => setPositionName(e.target.value)}
-            placeholder={t('position.placeholders')}
+            value={categoryName}
+            onChange={(e) => setCategoryName(e.target.value)}
+            placeholder={t('category.placeholders')}
             className="h-12 pr-10 pl-3 border-auth-border"
             disabled={loading}
           />
@@ -87,7 +91,7 @@ const PositionForm: React.FC = () => {
           <button
             type="button"
             className="border border-blue-600 text-blue-600 px-8 py-3 rounded-md"
-            onClick={() => navigate('/position')}
+            onClick={() => navigate('/category')}
             disabled={loading}
           >
             {t('common.cancel')}
@@ -109,4 +113,4 @@ const PositionForm: React.FC = () => {
   );
 };
 
-export default PositionForm;
+export default CategoryForm;

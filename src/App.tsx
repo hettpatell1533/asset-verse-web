@@ -12,15 +12,15 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import "./i18n/config";
-import { Category } from "./pages/Category";
 import { Location } from "./pages/Location";
 import { RolesAndRights } from "./pages/RolesAndRights";
-import { SubCategory } from "./pages/Subcategory";
 import  Department  from "./pages/Department";
 import { Assets } from "./pages/Assets";
 import { Employee } from "./pages/Employee";
 import CompanySetup from "./pages/CompanySetup";
 import PositionRoutes from "./routes/positionRoutes";
+import CategoryRoutes from "./routes/categoryRoutes";
+import SubCategoryRoutes from "./routes/subcategoryRoutes";
 
 const queryClient = new QueryClient();
 
@@ -93,13 +93,13 @@ const App = () => (
               }
             />
             <Route
-              path="/category"
+              path="/category/*"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                 <Layout>
-                  <Category />
+                  <CategoryRoutes />
                 </Layout>
-                // </AuthGuard>
+                 </AuthGuard>
               }
             />
             <Route
@@ -143,13 +143,13 @@ const App = () => (
               }
             />
             <Route
-              path="/subcategory"
+              path="/subcategory/*"
               element={
-                // <AuthGuard>
+                <AuthGuard>
                 <Layout>
-                  <SubCategory />
+                  <SubCategoryRoutes />
                 </Layout>
-                // </AuthGuard>
+               </AuthGuard>
               }
             />
             <Route
