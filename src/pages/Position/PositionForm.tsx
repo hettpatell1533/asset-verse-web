@@ -22,7 +22,7 @@ const PositionForm: React.FC = () => {
           try {
             setLoading(true);
             const res = await apiService.getPositionById(id as any);
-            setPositionName(res.data.name || '');
+            setPositionName((res as any)?.data?.name || '');
           } catch (err) {
             console.error('Failed to load position', err);
           } finally {

@@ -21,6 +21,7 @@ import CompanySetup from "./pages/CompanySetup";
 import PositionRoutes from "./routes/positionRoutes";
 import CategoryRoutes from "./routes/categoryRoutes";
 import SubCategoryRoutes from "./routes/subcategoryRoutes";
+import HelpSupport from "./pages/HelpSupport";
 
 const queryClient = new QueryClient();
 
@@ -135,6 +136,14 @@ const App = () => (
               element={
                 <Layout>
                   <Assets />
+                </Layout>
+              }
+            />
+            <Route
+              path="/help-support"
+              element={
+                <Layout>
+                  <HelpSupport />
                 </Layout>
               }
             />

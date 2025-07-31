@@ -217,6 +217,7 @@ import {
   ChevronDown,
   ChevronRight as ArrowRight,
   X,
+  HelpCircle,
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useAppContext } from '../../contexts/AppContext';
@@ -272,6 +273,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       title: t('navigation.assets'),
       href: '/assets',
       icon: Package,
+    },
+    {
+      title: t('navigation.helpSupport'),
+      href: '/help-support',
+      icon: HelpCircle,
     },
   ];
 

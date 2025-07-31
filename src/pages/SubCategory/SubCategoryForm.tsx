@@ -26,7 +26,7 @@ const SubCategoryForm: React.FC = () => {
   const fetchCategories = async (inputValue = '', page = 1): Promise<OptionType[]> => {
     try {
       const res = await apiService.getCategories(page, PAGE_SIZE);
-      return (res?.data?.data || []).map((cat: any) => ({
+      return ((res as any)?.data?.data || []).map((cat: any) => ({
         label: cat.categoryName,
         value: cat.categoryId,
       }));

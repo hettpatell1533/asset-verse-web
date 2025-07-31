@@ -21,7 +21,7 @@ const CategoryForm: React.FC = () => {
         try {
           setLoading(true);
           const res = await apiService.getCategoryById(Number(id));
-          setCategoryName(res.data?.categoryName || '');
+          setCategoryName((res as any)?.data?.categoryName || '');
         } catch (err) {
           console.error('Failed to load category', err);
         } finally {

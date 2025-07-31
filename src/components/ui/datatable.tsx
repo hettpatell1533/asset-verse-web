@@ -47,7 +47,7 @@ export function DataTable<T>({
             >
               {columns.map((col) => (
                 <td key={col.header} className="px-6 py-4 whitespace-nowrap">
-                  {col.render ? col.render(row[col.accessor], row) : row[col.accessor]}
+                  {col.render ? col.render(row[col.accessor], row) : String(row[col.accessor] || '')}
                 </td>
               ))}
               {(onEdit || onDelete) && (

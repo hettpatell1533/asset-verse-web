@@ -36,7 +36,8 @@
     "rolesandrights":"الأدوار والحقوق",
     "category":"فئة",
     "subcategory":"الفئة الفرعية",
-    "assets":"أصول"
+    "assets":"أصول",
+    "helpSupport":"المساعدة والدعم"
   },
   "dashboard": {
     "title": "لوحة تحكم إدارة الأصول",
@@ -123,10 +124,51 @@
   "employee": {
   "title": "قائمة الموظفين"
   },
-"table": {
-  "name": "اسم",
-  "email": "بريد إلكتروني",
-  "position": "موضع",
-  "id":"رقم التسلسل"
-}
+ "table": {
+   "name": "اسم",
+   "email": "بريد إلكتروني",
+   "position": "موضع",
+   "id":"رقم التسلسل"
+ },
+ "helpSupport": {
+   "title": "المساعدة والدعم",
+   "howCanWeHelp": "كيف يمكننا مساعدتك؟",
+   "contactUs": "اتصل بنا",
+   "raiseTicket": "إنشاء تذكرة",
+   "raiseTicketTitle": "إنشاء تذكرة",
+   "ticketTitle": "عنوان التذكرة",
+   "supportType": "نوع الدعم",
+   "description": "الوصف",
+   "uploadScreenshot": "رفع لقطة شاشة",
+   "cancel": "إلغاء",
+   "addTicket": "إضافة تذكرة",
+   "ticketStats": {
+     "totalTickets": "إجمالي التذاكر",
+     "newTickets": "التذاكر الجديدة",
+     "activeTickets": "التذاكر النشطة", 
+     "inProgressTickets": "التذاكر قيد التنفيذ",
+     "closedTickets": "التذاكر المغلقة"
+   },
+   "faqs": {
+     "whatIsAsset": "1. ما هو الأصل؟",
+     "whyAssetsImportant": "2. لماذا الأصول مهمة؟",
+     "mainTypesAssets": "3. ما هي الأنواع الرئيسية للأصول؟",
+     "differenceCurrentNonCurrent": "4. ما الفرق بين الأصل الحالي وغير الحالي؟",
+     "intangibleAsset": "5. ما هو الأصل غير الملموس، وهل يمكن إعطاء أمثلة؟",
+     "assetsValued": "6. كيف يتم تقييم الأصول في الميزانية العمومية للشركة؟",
+     "depreciation": "7. ما هو الاستهلاك، وكيف يؤثر على الأصول؟",
+     "assetsRelateToLiabilities": "8. كيف ترتبط الأصول بالالتزامات وحقوق الملكية؟"
+   },
+   "priorities": {
+     "high": "أولوية عالية (مشكلة حرجة - تحتاج حل عاجل)",
+     "medium": "أولوية متوسطة (دعم قياسي - يفضل الحل السريع)",
+     "low": "أولوية منخفضة (استفسار عام - الحل حسب الراحة)"
+   },
+   "placeholders": {
+     "ticketTitle": "أدخل عنوان التذكرة",
+     "selectSupportType": "اختر نوع الدعم",
+     "enterDescription": "أدخل الوصف",
+     "uploadScreenshot": "رفع لقطة شاشة"
+   }
+ }
 }

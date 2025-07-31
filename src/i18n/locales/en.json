@@ -123,13 +123,54 @@
   "employee": {
   "title": "Employee List"
   },
-"table": {
-  "name": "Name",
-  "email": "Email",
-  "position": "Position",
-  "id":"Sr. No.",
-  "category":"Category"
-},
+ "table": {
+   "name": "Name",
+   "email": "Email",
+   "position": "Position",
+   "id":"Sr. No.",
+   "category":"Category"
+ },
+ "helpSupport": {
+   "title": "Help & Support",
+   "howCanWeHelp": "How can we help you?",
+   "contactUs": "Contact Us",
+   "raiseTicket": "Raise a Ticket",
+   "raiseTicketTitle": "Raise a Ticket",
+   "ticketTitle": "Ticket Title",
+   "supportType": "Support Type",
+   "description": "Description",
+   "uploadScreenshot": "Upload screenshot",
+   "cancel": "Cancel",
+   "addTicket": "Add Ticket",
+   "ticketStats": {
+     "totalTickets": "Total Tickets",
+     "newTickets": "New Tickets", 
+     "activeTickets": "Active Tickets",
+     "inProgressTickets": "In Progress Tickets",
+     "closedTickets": "Closed Tickets"
+   },
+   "faqs": {
+     "whatIsAsset": "1. What is an asset?",
+     "whyAssetsImportant": "2. Why are assets important?",
+     "mainTypesAssets": "3. What are the main types of assets?",
+     "differenceCurrentNonCurrent": "4. What is the difference between a current asset and a non-current asset?",
+     "intangibleAsset": "5. What is an intangible asset, and can you give examples?",
+     "assetsValued": "6. How are assets valued on a company's balance sheet?",
+     "depreciation": "7. What is depreciation, and how does it affect assets?",
+     "assetsRelateToLiabilities": "8. How do assets relate to liabilities and equity?"
+   },
+   "priorities": {
+     "high": "High Priority (Critical Issue - Needs Urgent Resolution)",
+     "medium": "Medium Priority (Standard Support - Timely Resolution Preferred)",
+     "low": "Low Priority (General Inquiry - Resolution as Convenient)"
+   },
+   "placeholders": {
+     "ticketTitle": "Enter title for ticket",
+     "selectSupportType": "Select support type",
+     "enterDescription": "Enter description",
+     "uploadScreenshot": "Upload screenshot"
+   }
+ },
 "position":{
   "title":"Add Position",
   "name":"Position Name",
